@@ -1,38 +1,67 @@
+Berikut adalah versi `README.md` yang telah diterjemahkan ke dalam bahasa Indonesia:
+
+---
 
 # Flask Distributor Firebase Auto
 
-This is a Flask project that interacts with Firebase to manage distributor data automatically. This README will guide you through setting up, running, and using the application.
+Ini adalah proyek Flask yang berinteraksi dengan Firebase untuk mengelola data distributor secara otomatis. README ini akan memandu Anda dalam menyiapkan, menjalankan, dan menggunakan aplikasi.
 
-## Table of Contents
+## Daftar Isi
 
-1. [Installation](#installation)
-2. [Setup](#setup)
-3. [Running the Application](#running-the-application)
-4. [Environment Variables](#environment-variables)
-5. [Project Structure](#project-structure)
-6. [Usage](#usage)
-7. [API Endpoints](#api-endpoints) *(optional)*
-8. [Contributing](#contributing)
-9. [License](#license)
+1. [Instalasi](#instalasi)
+2. [Persiapan](#persiapan)
+3. [Menjalankan Aplikasi](#menjalankan-aplikasi)
+4. [Variabel Lingkungan](#variabel-lingkungan)
+5. [Struktur Proyek](#struktur-proyek)
+6. [Penjelasan Kode](#penjelasan-kode)
+    - [app.py](#app.py)
+    - [index.html](#index.html)
+    - [confirm_order.html](#confirm_order.html)
+7. [Penggunaan](#penggunaan)
+8. [Endpoint API](#endpoint-api) *(opsional)*
+9. [Kontribusi](#kontribusi)
+10. [Lisensi](#lisensi)
 
-## Installation
+## Instalasi
 
-### Prerequisites
+### Prasyarat
 
 - Python 3.6+
-- pip (Python package installer)
-- Virtual environment (optional but recommended)
+- pip (penginstal paket Python)
+- Lingkungan virtual (opsional, tapi disarankan)
 
-### Clone the Repository
+### Instalasi Flask
+
+#### 1. Instalasi Python
+
+Pastikan bahwa Python sudah terinstal di sistem Anda. Anda dapat mengunduh dan menginstalnya dari [situs web resmi Python](https://www.python.org/downloads/).
+
+#### 2. Instal Flask
+
+Flask dapat diinstal secara global atau di dalam lingkungan virtual. Disarankan untuk menginstalnya di dalam lingkungan virtual untuk menghindari konflik dependensi.
+
+```bash
+pip install Flask
+```
+
+#### 3. Verifikasi Instalasi Flask
+
+Anda dapat memverifikasi apakah Flask sudah terinstal dengan benar dengan menjalankan perintah:
+
+```bash
+flask --version
+```
+
+### Clone Repositori
 
 ```bash
 git clone https://github.com/username/flask_distributor_firebase_auto.git
 cd flask_distributor_firebase_auto
 ```
 
-### Create and Activate Virtual Environment
+### Membuat dan Mengaktifkan Lingkungan Virtual
 
-It's recommended to create a virtual environment to isolate dependencies:
+Disarankan untuk membuat lingkungan virtual agar dependensi terisolasi:
 
 ```bash
 # Windows
@@ -44,25 +73,25 @@ python3 -m venv env
 source env/bin/activate
 ```
 
-### Install Dependencies
+### Instalasi Dependensi
 
-Install all required packages using `pip`:
+Instal semua paket yang diperlukan menggunakan `pip`:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Setup
+## Persiapan
 
-### Firebase Configuration
+### Konfigurasi Firebase
 
-1. Create a Firebase project in the [Firebase Console](https://console.firebase.google.com/).
-2. Generate a `serviceAccountKey.json` file from the Firebase project settings.
-3. Place the `serviceAccountKey.json` file in the root directory of the project.
+1. Buat proyek Firebase di [Firebase Console](https://console.firebase.google.com/).
+2. Hasilkan file `serviceAccountKey.json` dari pengaturan proyek Firebase.
+3. Letakkan file `serviceAccountKey.json` di direktori root proyek.
 
-### Environment Variables
+### Variabel Lingkungan
 
-Create a `.env` file in the root directory of the project and add the following variables:
+Buat file `.env` di direktori root proyek dan tambahkan variabel berikut:
 
 ```
 FLASK_APP=app.py
@@ -71,61 +100,173 @@ SECRET_KEY=your_secret_key
 FIREBASE_ADMIN_CREDENTIALS=path_to_serviceAccountKey.json
 ```
 
-Replace `your_secret_key` with a secure key and `path_to_serviceAccountKey.json` with the path to your Firebase service account key.
+Ganti `your_secret_key` dengan kunci rahasia yang aman dan `path_to_serviceAccountKey.json` dengan jalur menuju kunci akun layanan Firebase Anda.
 
-## Running the Application
+## Menjalankan Aplikasi
 
-### Local Development
+### Pengembangan Lokal
 
-To run the application locally:
+Untuk menjalankan aplikasi secara lokal:
 
 ```bash
-# Activate virtual environment first if not already done
+# Aktifkan lingkungan virtual terlebih dahulu jika belum diaktifkan
 flask run
 ```
 
-This will start the Flask server on `http://127.0.0.1:5000/`.
+Ini akan memulai server Flask pada `http://127.0.0.1:5000/`.
 
-### Deployment
+### Deploy
 
-For deploying to production, make sure to configure the `FLASK_ENV` variable to `production` and use a production server like `gunicorn` or deploy to a platform like Heroku.
+Untuk deploy ke produksi, pastikan untuk mengonfigurasi variabel `FLASK_ENV` ke `production` dan gunakan server produksi seperti `gunicorn` atau deploy ke platform seperti Heroku.
 
-## Project Structure
+## Struktur Proyek
 
 ```
 flask_distributor_firebase_auto/
 │
-├── app.py               # Main application file
-├── requirements.txt     # Python dependencies
-├── serviceAccountKey.json  # Firebase Admin SDK key
-├── .env                 # Environment variables
-├── templates/           # HTML templates (if any)
-├── static/              # Static files (CSS, JS, images)
-├── models/              # Database models (if using SQLAlchemy)
-└── ...                  # Other files and directories
+├── app.py                   # File aplikasi utama
+├── requirements.txt         # Dependensi Python
+├── serviceAccountKey.json   # Kunci SDK Admin Firebase
+├── .env                     # Variabel lingkungan
+├── templates/               # Template HTML (index.html, confirm_order.html, dll.)
+├── static/                  # File statis (CSS, JS, gambar)
+├── models/                  # Model database (jika menggunakan SQLAlchemy)
+└── ...                      # File dan direktori lainnya
 ```
 
-## Usage
+## Penjelasan Kode
 
-1. Make sure the Firebase configuration is set up correctly.
-2. Run the Flask application.
-3. Open a web browser and go to `http://127.0.0.1:5000/`.
+### app.py
 
-## API Endpoints
+Ini adalah file aplikasi utama yang berisi rute Flask dan logika inti dari aplikasi.
 
-*(Optional: List API endpoints and their functionality)*
+```python
+from flask import Flask, render_template, request, redirect, url_for
+import firebase_admin
+from firebase_admin import credentials, firestore
 
-## Contributing
+# Inisialisasi aplikasi Flask
+app = Flask(__name__)
 
-Contributions are welcome! Please follow these steps to contribute:
+# Memuat kredensial SDK Admin Firebase
+cred = credentials.Certificate('serviceAccountKey.json')
+firebase_admin.initialize_app(cred)
 
-1. Fork the repository.
-2. Create a new feature branch (`git checkout -b feature-branch`).
-3. Commit your changes (`git commit -m 'Add some feature'`).
-4. Push to the branch (`git push origin feature-branch`).
-5. Create a new Pull Request.
+# Inisialisasi Firestore DB
+db = firestore.client()
 
-## License
+@app.route('/')
+def index():
+    # Mengambil semua data distributor dari Firestore
+    distributors = db.collection('distributors').get()
+    distributor_list = [doc.to_dict() for doc in distributors]
+    return render_template('index.html', distributors=distributor_list)
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+@app.route('/confirm_order/<string:distributor_id>', methods=['GET', 'POST'])
+def confirm_order(distributor_id):
+    if request.method == 'POST':
+        # Memperbarui status pesanan di Firestore berdasarkan pengiriman formulir
+        db.collection('distributors').document(distributor_id).update({
+            'order_status': 'confirmed'
+        })
+        return redirect(url_for('index'))
+    distributor = db.collection('distributors').document(distributor_id).get().to_dict()
+    return render_template('confirm_order.html', distributor=distributor)
 
+if __name__ == '__main__':
+    app.run(debug=True)
+```
+
+- **Import dan Inisialisasi**:
+  - `firebase_admin` dan `firestore` digunakan untuk menghubungkan ke Firebase Firestore.
+  - `app = Flask(__name__)` menginisialisasi aplikasi Flask.
+
+- **Rute**:
+  - `/`: Menampilkan daftar distributor yang diambil dari Firestore.
+  - `/confirm_order/<string:distributor_id>`: Mengonfirmasi pesanan untuk distributor.
+
+### index.html
+
+File template ini menampilkan daftar distributor dengan opsi untuk mengonfirmasi pesanan.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Daftar Distributor</title>
+</head>
+<body>
+    <h1>Daftar Distributor</h1>
+    <ul>
+        {% for distributor in distributors %}
+            <li>
+                {{ distributor.name }} - {{ distributor.order_status }}
+                <a href="{{ url_for('confirm_order', distributor_id=distributor.id) }}">Konfirmasi Pesanan</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+```
+
+- **Menampilkan daftar distributor** dan status pesanan mereka.
+- Setiap distributor memiliki tautan untuk mengonfirmasi pesanan.
+
+### confirm_order.html
+
+Template ini menyediakan formulir untuk mengonfirmasi pesanan dari distributor tertentu.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Konfirmasi Pesanan</title>
+</head>
+<body>
+    <h1>Konfirmasi Pesanan untuk {{ distributor.name }}</h1>
+    <form method="POST">
+        <p>Apakah Anda yakin ingin mengonfirmasi pesanan untuk {{ distributor.name }}?</p>
+        <button type="submit">Konfirmasi</button>
+    </form>
+    <a href="{{ url_for('index') }}">Kembali ke daftar</a>
+</body>
+</html>
+```
+
+- **Formulir untuk konfirmasi pesanan**: Menampilkan pesan konfirmasi dan tombol untuk mengonfirmasi pesanan.
+- Formulir dikirimkan ke rute yang sama menggunakan metode `POST`, yang akan memperbarui status pesanan di Firestore.
+
+## Penggunaan
+
+1. Pastikan konfigurasi Firebase telah diatur dengan benar.
+2. Jalankan aplikasi Flask.
+3. Buka browser web dan pergi ke `http://127.0.0.1:5000/`.
+
+## Endpoint API
+
+*(Opsional: Daftar endpoint API dan fungsionalitasnya)*
+
+## Kontribusi
+
+Kontribusi sangat disambut! Ikuti langkah-langkah berikut untuk berkontribusi:
+
+1. Fork repositori ini.
+2. Buat cabang fitur baru (`git checkout -b feature-branch`).
+3. Commit perubahan Anda (`git commit -m 'Tambah fitur baru'`).
+4. Push ke cabang (`git push origin feature-branch`).
+5. Buat Pull Request baru.
+
+## Lisensi
+
+Proyek ini dilisensikan di bawah Lisensi MIT - lihat file [LICENSE](LICENSE) untuk lebih jelasnya.
+
+---
+
+**Catatan:**
+1. Pastikan untuk mengganti `username` di URL repositori dengan nama pengguna GitHub atau URL yang sesuai.
+2. Sesuaikan bagian [Struktur Proyek](#struktur-proyek) dan [Endpoint API](#endpoint-api) sesuai kebutuhan proyekmu.
+3. Jika ada tambahan konfigurasi atau file yang spesifik, tambahkan penjelasannya di README ini.
+
+Jika ada informasi spesifik yang ingin ditambahkan atau diubah, beri tahu saya!
