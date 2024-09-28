@@ -1,8 +1,3 @@
-Untuk membuat file `README.md`, saya akan membuatkan template yang menjelaskan cara menggunakan proyek Flask kamu, cara menjalankan aplikasi, dan beberapa informasi dasar. Berdasarkan file `flask_distributor_firebase_auto.rar` yang kamu unggah, saya akan membuat README.md umum untuk proyek Flask.
-
-Berikut template `README.md` untuk proyek Flask:
-
----
 
 # Flask Distributor Firebase Auto
 
