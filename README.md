@@ -1,7 +1,3 @@
-Berikut adalah versi `README.md` yang telah diterjemahkan ke dalam bahasa Indonesia:
-
----
-
 # Flask Distributor Firebase Auto
 
 Ini adalah proyek Flask yang berinteraksi dengan Firebase untuk mengelola data distributor secara otomatis. README ini akan memandu Anda dalam menyiapkan, menjalankan, dan menggunakan aplikasi.
@@ -24,7 +20,7 @@ Ini adalah proyek Flask yang berinteraksi dengan Firebase untuk mengelola data d
 
 ## Instalasi
 
-### Prasyarat
+### Requirements
 
 - Python 3.6+
 - pip (penginstal paket Python)
@@ -73,6 +69,7 @@ python3 -m venv env
 source env/bin/activate
 ```
 
+
 ### Instalasi Dependensi
 
 Instal semua paket yang diperlukan menggunakan `pip`:
@@ -115,9 +112,6 @@ flask run
 
 Ini akan memulai server Flask pada `http://127.0.0.1:5000/`.
 
-### Deploy
-
-Untuk deploy ke produksi, pastikan untuk mengonfigurasi variabel `FLASK_ENV` ke `production` dan gunakan server produksi seperti `gunicorn` atau deploy ke platform seperti Heroku.
 
 ## Struktur Proyek
 
@@ -257,16 +251,3 @@ Kontribusi sangat disambut! Ikuti langkah-langkah berikut untuk berkontribusi:
 3. Commit perubahan Anda (`git commit -m 'Tambah fitur baru'`).
 4. Push ke cabang (`git push origin feature-branch`).
 5. Buat Pull Request baru.
-
-## Lisensi
-
-Proyek ini dilisensikan di bawah Lisensi MIT - lihat file [LICENSE](LICENSE) untuk lebih jelasnya.
-
----
-
-**Catatan:**
-1. Pastikan untuk mengganti `username` di URL repositori dengan nama pengguna GitHub atau URL yang sesuai.
-2. Sesuaikan bagian [Struktur Proyek](#struktur-proyek) dan [Endpoint API](#endpoint-api) sesuai kebutuhan proyekmu.
-3. Jika ada tambahan konfigurasi atau file yang spesifik, tambahkan penjelasannya di README ini.
-
-Jika ada informasi spesifik yang ingin ditambahkan atau diubah, beri tahu saya!
