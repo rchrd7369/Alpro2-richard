@@ -45,7 +45,7 @@ Untuk menginstal proyek ini secara lokal, ikuti langkah-langkah berikut:
 ### 1. Clone Repositori
 
 ```bash
-git clone https://github.com/username/modul-distributor.git
+git clone https://github.com/afifilhamh/iak_distributor5.git
 cd modul-distributor
 ```
 
